@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Test</title>
-  </head>
-
-  <body>
-    <h1>Tada</h1>
-  </body>
-</html>
+---
+layout: default
+title: Blogging Like a Hacker
+---
+{% for post in paginator.posts %}
+  <a href="{{ post.url }}">{{ post.date }} {{ post.title }}</a><br />
+  {{ post.content[0..100] }}
+{% endfor %}
