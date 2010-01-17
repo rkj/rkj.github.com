@@ -3,9 +3,7 @@ layout: nil
 ---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-
 {% assign site_url = "http://rkj.github.com" %}
- 
  <title>rkj tech blog</title>
  <link href="{{ site_url}}/atom.xml" rel="self"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
@@ -24,5 +22,4 @@ layout: nil
    <content type="html">{{ post.content | xml_escape }}</content>
  </entry>
  {% endfor %}
-
 </feed>
