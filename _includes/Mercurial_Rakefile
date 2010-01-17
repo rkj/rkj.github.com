@@ -8,7 +8,7 @@ rescue LoadError => e
   exit(1)
 end
 
-@repos = Dir["*/.hg"].map { |f| File.split(f).first } + [Dir.pwd]
+@repos = Dir["**/.hg"].map { |f| f.sub(/.hg$/, "") }
 def on_repos(cmd)
   @repos.each do |project|
     begin
@@ -29,7 +29,7 @@ task :hg do
   end
 end
 
-desc "Rebase wszystkich projektów"
+desc "Rebase"
 task :rebase do
   on_repos("hg pull --rebase")
 end
