@@ -3,7 +3,9 @@ title: Rakefile for dealing with mercurial subrepos
 layout: post
 categories: [Mercurial, rake, subrepositories]
 ---
-Subrepositories is quite an important thing if you have any bigger project, where you can extract some libraries, modules, parts or any other such things. We have chosen Mercurial for version control, because it distributed (svn suxx ass), easy to use, and have good cross-platform support. Until version 1.3 it did not have any support for subrepositories, now it has on, that is far from perfect, but still much better than nothing. And I am sure it will get better, or eventually great. 
+Subrepositories is quite an important thing if you have any bigger project, where you can extract some libraries, modules, parts or any other such things. We have chosen Mercurial for version control, because it distributed (svn suxx ass), easy to use, and have good cross-platform support. Until version 1.3 it did not have any support for subrepositories, now it has one.
+It is far from perfect, but still much better than nothing. And I am sure it will get better, or eventually great. 
+
 But for the time I have made quite simple Rakefile to help with subrepos. It works fine also with Mercurial versions less than 1.3. To use it you must have Ruby and gems: rake, term-ansicolor installed. Script assumes that you have subdirectories which are Mercurial repositiories and issues commands on each of them.
 
 `rake -T` will give you list of available tasks:
