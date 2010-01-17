@@ -1,0 +1,5 @@
+---
+layout: post
+title: Handling Netbeans mobile projects.
+categories: Netbeans jme mobile
+---
