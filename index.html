@@ -2,9 +2,24 @@
 layout: default
 title: rkj tech blog
 ---
-{% for post in site.posts %}
-  <p>
-    <a href="{{ post.url }}">{{  post.date | date "", "%Y-%m-%d" }} {{ post.title }}</a> {{ post.categories | join("", ", ")}} <br />
-    {{ post.content | strip_html | truncatewords "", 10 }}
-  </p>
-{% endfor %}
+<div id="last_post">
+  {% assign last_post = site.posts.first %}
+  <h2><a href="{{ last_post.url }}">
+    newest post: {{ last_post.title }}
+  </a></h2>
+  {{ last_post.content | strip_html | truncatewords: 10 }}
+  <br />
+  <a id="more" href="{{ last_post.url }}">Read More &raquo;</a>
+</div>
+<div id="posts">
+  <ul>
+    {% for post in site.posts %}
+      <li>
+        <p>
+          <a href="{{ post.url }}">{{  post.date | date: "%Y-%m-%d" }} {{ post.title }}</a> {{ post.categories | join: ", " }} <br />
+          {{ post.content | strip_html | truncatewords: 10 }}
+        </p>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
