@@ -1,8 +1,10 @@
 ---
 layout: default
-title: Blogging Like a Hacker
+title: rkj tech blog
 ---
-{% for post in paginator.posts %}
-  <a href="{{ post.url }}">{{ post.date }} {{ post.title }}</a><br />
-  {{ post.content[0..100] }}
+{% for post in site.posts %}
+  <p>
+    <a href="{{ post.url }}">{{  post.date | date "", "%Y-%m-%d" }} {{ post.title }}</a> {{ post.categories | join("", ", ")}} <br />
+    {{ post.content | strip_html | truncatewords "", 10 }}
+  </p>
 {% endfor %}

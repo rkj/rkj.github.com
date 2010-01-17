@@ -1,0 +1,85 @@
+<h1>Mercurial subrepos</h1>
+<p>Since versioin 1.3 Mercurial has support for sub repositories.</p>
+<div>
+<pre>
+<code class='ruby'># -*- encoding: utf-8 -*-
+<p>begin<br />
+  require &#8216;term/ansicolor&#8217;<br />
+  class String<br />
+    include Term::ANSIColor<br />
+  end<br />
+rescue LoadError =&gt; e<br />
+  <span class="caps">STDERR</span>.puts &quot;Please install gem term-ansicolor to use this rakefile.&quot;<br />
+  exit(1)<br />
+end</p>
+<p>@repos = Dir[&quot;*/.hg&quot;].map { |f| File.split(f).first } + [Dir.pwd]<br />
+def on_repos(cmd)<br />
+  @repos.each do |project|<br />
+    begin<br />
+      puts &quot;= #{project.red} (#{cmd.yellow})&quot;<br />
+      system &quot;cd #{project}; #{cmd}&quot;<br />
+    rescue =&gt; e<br />
+      puts &quot;Failed because: #{e}&quot;.red<br />
+    end<br />
+  end<br />
+end</p>
+<p>desc &quot;Invokes any hg command on every repo. Provide <span class="caps">CMD</span>=command env variable.&quot;<br />
+task :hg do<br />
+  on_repos(&quot;hg #{ENV[&#8216;<span class="caps">CMD</span>&#8217;]}&quot;)<br />
+end</p>
+<p>desc &quot;Rebase wszystkich projektów&quot;<br />
+task :rebase do<br />
+  on_repos(&quot;hg pull &#8212;rebase&quot;)<br />
+end</p>
+<p>desc &quot;Pull&quot;<br />
+task :pull do<br />
+  on_repos(&quot;hg pull&quot;)<br />
+end</p>
+<p>desc &quot;Pull -u&quot;<br />
+task :update do<br />
+  on_repos(&quot;hg pull -u&quot;)<br />
+end</p>
+<p>desc &quot;Status&quot;<br />
+task :status do<br />
+  on_repos(&quot;hg status&quot;)<br />
+end</p>
+<p>desc &quot;Push&quot;<br />
+task :push do<br />
+  on_repos(&quot;hg push&quot;)<br />
+end</p>
+<p>desc &quot;Tag repos. Provide name=tag_name param&quot;<br />
+task :tag do |t, args|<br />
+  if args.name.nil?<br />
+    puts &quot;Missing name parameter&quot;<br />
+  else <br />
+    on_repos(&quot;hg tag #{args.name}&quot;)<br />
+  end<br />
+end</p>
+<p>desc &quot;Update all repos to some revision. Provide rev=revision parameter.&quot;<br />
+task :upto do |t, args|<br />
+  if args.rev.nil?<br />
+    puts &quot;Missing rev parameter&quot;<br />
+  else<br />
+    on_repos(&quot;hg update -C #{args.name}&quot;)<br />
+  end<br />
+end</p>
+<p>desc &quot;Commits main repository and adds commits messages from every subrepo.&quot;<br />
+task :commit do<br />
+  require &#8216;time&#8217;<br />
+  last_date = Time.parse(%x{hg tip <del>-template &#8216;{date|isodate}&#8217;}) + 60<br />
+  date = last_date.strftime(&quot;%Y</del>%m-%d %H:%M&quot;)<br />
+  out = @repos.reject { |r| File.basename&#174; == &quot;itiner&quot; }.map do |r| <br />
+    log = %x{cd #{r} &amp;&amp; hg log -d &#8216;&gt;#{date}&#8217; &#8212;template=&quot;== {desc}\n&quot;}.strip<br />
+    log.empty? ? nil : &quot;= #{File.basename r}\n#{log}&quot;<br />
+  end<br />
+  msg = out.compact.join(&quot;\n\n&quot;).strip</p>
+<ol>
+	<li>mac only?<br />
+  IO.popen(&#8216;pbcopy&#8217;, &#8216;w&#8217;) do |pipe|<br />
+    pipe.print(msg)<br />
+  end<br />
+  system &quot;hg commit &amp;&amp; hg push&quot;<br />
+end</code><br />
+  </pre><br />
+</div></li>
+</ol>

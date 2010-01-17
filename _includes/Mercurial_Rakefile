@@ -1,0 +1,90 @@
+begin
+  require 'term/ansicolor'
+  class String
+    include Term::ANSIColor
+  end
+rescue LoadError => e
+  STDERR.puts "Please install gem term-ansicolor to use this rakefile."
+  exit(1)
+end
+
+@repos = Dir["*/.hg"].map { |f| File.split(f).first } + [Dir.pwd]
+def on_repos(cmd)
+  @repos.each do |project|
+    begin
+      puts "= #{project.red} (#{cmd.yellow})"
+      system "cd #{project}; #{cmd}"
+    rescue => e
+      puts "Failed because: #{e}".red
+    end
+  end
+end
+
+desc "Invokes any hg command on every repo. Provide CMD=command env variable."
+task :hg do
+  if ENV['CMD'].nil?
+    puts "Missing rev parameter"
+  else
+    on_repos("hg #{ENV['CMD']}")
+  end
+end
+
+desc "Rebase wszystkich projektów"
+task :rebase do
+  on_repos("hg pull --rebase")
+end
+
+desc "Pull"
+task :pull do
+  on_repos("hg pull")
+end
+
+desc "Pull -u"
+task :update do
+  on_repos("hg pull -u")
+end
+
+desc "Status"
+task :status do
+  on_repos("hg status")
+end
+
+desc "Push"
+task :push do
+  on_repos("hg push")
+end
+
+desc "Tag repos. Provide name=tag_name param"
+task :tag do |t, args|
+  if args.name.nil?
+    puts "Missing name parameter"
+  else 
+    on_repos("hg tag #{args.name}")
+  end
+end
+
+desc "Update all repos to some revision. Provide rev=revision parameter."
+task :upto do |t, args|
+  if args.rev.nil?
+    puts "Missing rev parameter"
+  else
+    on_repos("hg update -C #{args.name}")
+  end
+end
+
+desc "Commits main repository and adds commits messages from every subrepo."
+task :commit do
+  require 'time'
+  last_date = Time.parse(%x{hg tip --template '{date|isodate}'}) + 60
+  date = last_date.strftime("%Y-%m-%d %H:%M")
+  out = @repos.reject { |r| File.basename(r) == "itiner" }.map do |r| 
+    log = %x{cd #{r} && hg log -d '>#{date}' --template="== {desc}\n"}.strip
+    log.empty? ? nil : "= #{File.basename r}\n#{log}"
+  end
+  msg = out.compact.join("\n\n").strip
+  # mac only?
+  IO.popen('pbcopy', 'w') do |pipe|
+    pipe.print(msg)
+  end
+  system "hg commit && hg push"
+end

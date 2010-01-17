@@ -7,7 +7,15 @@
   </head>
 
   <body>
-    <h1> {{ page.title }} </h1>
-    {{ content }}
+    <div id="content">
+      <h1>{{ page.title }}</h1>
+      {{ content }}
+    </div>
+    <div id="related">
+      Related posts:
+      {% for post in site.related_posts %}
+      <a href="{{ post.url }}">{{ post.date | date "", "%Y-%m-%d" }} {{ post.title }}</a><br />
+      {% endfor %}
+    </div>
   </body>
 </html>
