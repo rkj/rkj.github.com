@@ -10,6 +10,7 @@ title: rkj tech blog
       </a>
     </h2>
     {{ post.content | strip_html | truncatewords: 100 }}
+    <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i={{ post.url }}" type="text/javascript"></script>
     <br />
     <a id="more" href="{{ post.url }}">Read More &raquo;</a>
   {% endfor %}
