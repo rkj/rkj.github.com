@@ -2,16 +2,29 @@
 layout: default
 title: rkj tech blog
 ---
-<div id="last_post">
-  {% for post in site.posts limit: 5 %}
-    <h2>
-      <a href="{{ post.url }}">
-        {{  post.date | date: "%Y-%m-%d" }} {{ post.title }}
-      </a>
-    </h2>
-    {{ post.content | strip_html | truncatewords: 100 }}
-    <br />
-    <a id="more" href="{{ post.url }}">Read More &raquo;</a>
+<section> 
+  <section id="articles"> 
+    {% for post in site.posts limit: 5 %}
+    <article class="post"> 
+      <header>
+        <h1> 
+          <a href="{{ post.url }}">
+            {{ post.title }}
+          </a>
+        </h1>
+        <span class="date">
+          {{  post.date | date: "%Y-%m-%d" }} 
+        </span>
+      </header>
+
+      <section class="content"> 
+        {{ post.content | strip_html | truncatewords: 100 }}
+      </section> 
+      <div class="more">
+        <a href="{{ post.url }}">Read more &raquo;</a>
+      </div>
+    </article>
     <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i=http://rkj.github.com/{{ post.url }}" type="text/javascript"></script>
-  {% endfor %}
-</div>
+    {% endfor %}
+  </section>
+</section>

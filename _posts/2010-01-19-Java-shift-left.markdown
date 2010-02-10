@@ -1,7 +1,7 @@
 ---
-title: Shifting left in Java
+title: Shifting bytes left in different languages
 layout: post
-categories: [Java, programming]
+categories: [java, ruby, python, c, programming]
 ---
 Compare this two lines of code:
 {% highlight java linenos %}
