@@ -5,9 +5,7 @@
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8" />
     <title>{{ page.title }}</title>
-    
     <link href="http://feeds.feedburner.com/RkjTechBlog" rel="alternate" title="RSS" type="application/rss+xml" />
-    
     <link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/css/960.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/css/text.css" type="text/css" media="screen, projection" />
@@ -18,9 +16,9 @@
   <body>
     <div class="container_12">
       <div id="header" class="grid_12 center">
-        <a href="/">rkj's blog</a>
+        <h2><a href="/">rkj's blog</a></h2>
       </div>
-      <div id="posts" class="grid_4">
+      <section id="post_list" class="grid_4">
         <ul>
           {% for post in site.posts %}
             <li>
@@ -28,10 +26,12 @@
             </li>
           {% endfor %}
         </ul>
-      </div>
-      <div class="grid_8">
-        {{ content }}
-      </div>
+      </section>
+      <section id="content" class="grid_8">
+        <div>
+             {{ content }}
+        </div>
+      </section>
     </div>
   </body>
 </html>
