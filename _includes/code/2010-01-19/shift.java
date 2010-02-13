@@ -1,9 +1,9 @@
-
-public void shift(int no) {
-  int one = 2 << (no - 1);
-  int two = (2 << no) / 2;
-  System.out.println("Shift(" + no +"): " + one + ", " + two);
+void shift(int no, int s) {
+  int one = no << (s - 1);
+  int two = (no << s) / 2;
+  System.out.println("Shift(" + no + ", " + s + "): " + one + ", " + two);
 }
-shift(8);
-shift(1);
-shift(0);
+shift(2, 8); // 256, 256
+shift(2, 1); // 2, 2
+shift(2, 0); // 0, 1
+shift(256, -4); // 0, 0

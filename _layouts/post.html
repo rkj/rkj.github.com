@@ -1,16 +1,19 @@
 ---
 layout: default
 ---
-<div id="content">
+<header>
   <h1>{{ page.title }}</h1>
+  <span class="date">{{  post.date | date: "%Y-%m-%d" }}</span>
+</header>
+<section id="content">
   {{ content }}
-</div>
-<div id="related">
+</section>
+<section id="related">
   Related posts:
   <ul>
     {% for post in site.related_posts %}
     <li><a href="{{ post.url }}">{{ post.title }}</a></li>
     {% endfor %}
   </ul>
-</div>
-<script src="http://feeds.feedburner.com/~s/RkjTechBlog?i=http://rkj.github.com/{{ page.url }}" type="text/javascript"></script>
+</section>
+<!-- <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i=http://rkj.github.com/{{ page.url }}" type="text/javascript"></script> -->

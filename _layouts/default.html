@@ -18,19 +18,15 @@
       <div id="header" class="grid_12 center">
         <h2><a href="/">rkj's blog</a></h2>
       </div>
-      <section id="post_list" class="grid_4">
+      <section id="post_list" class="grid_3">
         <ul>
           {% for post in site.posts %}
-            <li>
-              <a href="{{ post.url }}">{{ post.title }}</a> 
-            </li>
+            <li><a href="{{ post.url }}">{{ post.title }}</a></li>
           {% endfor %}
         </ul>
       </section>
-      <section id="content" class="grid_8">
-        <div>
-             {{ content }}
-        </div>
+      <section id="content" class="grid_9">
+        <div>{{ content }}</div>
       </section>
     </div>
   </body>

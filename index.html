@@ -7,7 +7,7 @@ title: rkj tech blog
     {% for post in site.posts limit: 5 %}
     <article class="post"> 
       <header>
-        <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+        <h2><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <span class="date">{{  post.date | date: "%Y-%m-%d" }}</span>
       </header>
       <section class="content"> 
@@ -15,7 +15,7 @@ title: rkj tech blog
       </section> 
       <div class="more"><a href="{{ post.url }}">Read more &raquo;</a></div>
     </article>
-    <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i=http://rkj.github.com/{{ post.url }}" type="text/javascript"></script>
+    <!-- <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i=http://rkj.github.com/{{ post.url }}" type="text/javascript"></script> -->
     {% endfor %}
   </section>
 </section>

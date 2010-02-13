@@ -25,6 +25,8 @@ header h1 {
   font-size: 1.5em;
   font-weight: 600;
 }
+header {
+	margin-bottom: 1em;
+}
 p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset {
-  margin-bottom: 1em;
 }

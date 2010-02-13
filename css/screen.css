@@ -10,12 +10,11 @@ a {
   color: #b83000;
 	text-decoration: none;
 }
-h1 a {
-  color: black;
-  text-decoration: none;
-}
 a:hover {
   text-decoration: underline;
+}
+h1 a, h2 a {
+  color: black;
 }
 header, footer, section, article {
   display: block;
@@ -32,7 +31,11 @@ section#post_list ul {
 }
 section#post_list li {
   padding: 0.25em 1em 0.25em 1em;
+  font-size: 75%;
   border-bottom: 1px black dotted;
+}
+section#post_list a {
+	color: gray;
 }
 section#content > div {
 	padding-left: 1em;
