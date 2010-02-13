@@ -1,2 +1,0 @@
-
-pgk () { ps aux | grep "$*" | tr -s ' ' '\t' | cut -f 2 | xargs -t kill }
