@@ -14,8 +14,8 @@ title: rkj tech blog
         {{ post.content | strip_html | truncatewords: 100 }}
       </section> 
       <div class="more"><a href="{{ post.url }}">Read more &raquo;</a></div>
+      <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i=http://rkj.github.com/{{ post.url }}" type="text/javascript"></script>
     </article>
-    <!-- <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i=http://rkj.github.com/{{ post.url }}" type="text/javascript"></script> -->
     {% endfor %}
   </section>
 </section>
