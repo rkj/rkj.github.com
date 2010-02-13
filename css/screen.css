@@ -35,6 +35,9 @@ section#post_list li {
   border-bottom: 1px black dotted;
 }
 section#post_list a {
+	color: #101010;
+}
+section#post_list a:visited {
 	color: gray;
 }
 section#content > div {
