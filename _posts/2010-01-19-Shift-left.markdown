@@ -9,7 +9,7 @@ int x = 2 << (s - 1);
 {% endhighlight %}
 when I wanted something a little simpler:
 {% highlight java %}
-int x = 1 << no;
+int x = 1 << s;
 {% endhighlight %}
 It gave unexpected (for me) behavior for shifting negative number of bits. I was having hope that shifting -1 place left would be equal to shifting 1 place right. But I was wrong, and the result was always zero, no matter what number I would try to shift. 
 After a little search I have found: [Bitwise and Bit Shift Operators](http://java.sun.com/docs/books/tutorial/java/nutsandbolts/op3.html "Bitwise and Bit Shift Operators") but is says nothing about this case.
