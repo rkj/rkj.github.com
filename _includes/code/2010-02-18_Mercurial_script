@@ -1,0 +1,15 @@
+mkdir example
+cd example
+hg init
+echo a > a
+hg ci -Am 'a'
+hg branch b
+echo b > b
+hg ci -Am 'b'
+echo c > c
+hg ci -Am 'c'
+hg up default
+hg rollback
+cat c
+hg up b
+cat c
