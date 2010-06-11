@@ -13,14 +13,22 @@
     <link rel="stylesheet" href="/css/text.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/css/syntax.css" type="text/css" media="screen, projection" />
     <link rel="stylesheet" href="/css/screen.css" type="text/css" media="screen, projection" />
+    <script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js'></script>
+    <script>
+    $(document).ready(function(){
+      $('.fade-element').fadeTo(0, 0.3).
+        mouseenter(function() { $(this).fadeTo(100,1); }).
+        mouseleave(function() { $(this).fadeTo(150, 0.3); });
+      });
+    </script>
   </head>
 
   <body>
     <div class="container_12">
-      <div id="header" class="grid_12 center">
+      <div id="header" class="grid_12 center fade-element">
         <h2><a href="/">rkj's blog</a></h2>
       </div>
-      <section id="post_list" class="grid_3">
+      <section id="post_list" class="grid_3 fade-element">
         <ul>
           {% for post in site.posts %}
             <li><a href="{{ post.url }}">{{ post.title }}</a></li>
