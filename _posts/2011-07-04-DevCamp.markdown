@@ -12,9 +12,10 @@ that was really great and intense coding experience, and I would love to take
 part in another one.
 
 In June I have received an invitation to a Server Side Javascript R&D Camp
-organized by DevMeetings.pl. It was advertised as a three days long, advanced
-and practical developers meeting in a nice hotel in countryside. It didn't take
-me long to accept the invitation and I was eagerly waiting for it.
+organized by [DevMeetings.pl](http://devmeetings.pl). It was advertised as a
+three days long, advanced and practical developers meeting in a nice hotel in
+countryside. It didn't take me long to accept the invitation and I was eagerly
+waiting for it.
 
 About twenty developers arrived on Thursday evening. For the first two days we
 worked in 4-5 people teams researching different topics: security, performance,
@@ -39,6 +40,6 @@ and the results of the camp was discussed. Sadly I had to leave before
 the conclusion but I have a feeling that SSJS was not voted as production-ready
 Java replacement...
 
-I would like to thank organizers and all the great attenders, I had a great
+I would like to thank the organizers and all the great attenders, I had a great
 time and learned a lot about today's hot technologies. See you next time!
 
