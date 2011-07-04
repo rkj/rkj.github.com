@@ -16,6 +16,5 @@ I would like to share with you a simple script that makes life with LaTeX a litt
 I consider this to be the best of both worlds. You can write freely for most time, but when you are finishing and want to take care of the final look you can almost instantly see changes in PDF and tweek quirks until you are satisfied.
 
 There are other tools to acomplish similar results. One of them is LyX, but there is a problem with retrieving source tex files from it. And you will need them at some point, to do some tweeking, or something that is not available in LyX, but can be done in LaTeX and it will be painful. So do not even start - its lame. There are also some editors with similar capabilities, but I have my favorite editor, you may have yours - and the scripts works with them all.
-
 {% highlight ruby linenos %}{% include Latex_Rakefile %}
 {% endhighlight %}

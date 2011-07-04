@@ -13,7 +13,11 @@ title: rkj tech blog
       <section class="content"> 
         {{ post.content | strip_html | truncatewords: 100 }}
       </section> 
-      <div class="more"><a href="{{ post.url }}">Read more &raquo;</a></div>
+      <div class="more">
+        <a href="{{ post.url }}#disqus_thread">Comments</a>
+        |
+        <a href="{{ post.url }}">Read more &raquo;</a>
+      </div>
       <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i={{ post.url }}" type="text/javascript"></script>
     </article>
     {% endfor %}

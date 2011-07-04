@@ -30,6 +30,6 @@ header {
 }
 p,dl,hr,h1,h2,h3,h4,h5,h6,ol,ul,pre,table,address,fieldset {
 }
-p {
-	margin-top: 1em;
+p + p, p + h1, p + h2, p + h3 {
+  margin-top: 1em;
 }
