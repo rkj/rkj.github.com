@@ -1,0 +1,44 @@
+---
+title: SSJS Devcamp organized by DevMeetings.pl
+layout: post
+categories: [event, ssjs, devmeetigs]
+---
+
+I have always liked lightweight events, like BarCamp, and have tried to attend
+most of locally organized ones.  At the beginning of this year I have taken
+part in [Poznań Code
+Retreat](http://www.jug.poznan.pl/materialy-ze-spotkan/materialy/1-poznanski-code-retreat/)
+that was really great and intense coding experience, and I would love to take
+part in another one.
+
+In June I have received an invitation to a Server Side Javascript R&D Camp
+organized by DevMeetings.pl. It was advertised as a three days long, advanced
+and practical developers meeting in a nice hotel in countryside. It didn't take
+me long to accept the invitation and I was eagerly waiting for it.
+
+About twenty developers arrived on Thursday evening. For the first two days we
+worked in 4-5 people teams researching different topics: security, performance,
+NoSQL databases, integration, tools and practices. I worked on db team and will
+describe the results in some following post. On each day's evening each team
+presented theirs results. This introduced a little pressure and made people
+work hard, as no one would like to present nothing...
+
+On Sunday, our final day, each team was given the same task: implement simple
+twitter clone using some of the technologies we have worked with. We started at
+10am and the deadline was dinner at 2pm. I, together with
+[Bartek](http://twitter.com/#!/bartaz) and Bernard used RingoJS deployed on
+AppEngine, and the results are visible
+[here](http://devcamp.ringojs-twitter.appspot.com/). I think it is quite
+impressive that now we have technologies and tools that allows us to build such
+things in a rather short time span. But to be honest we could use Python
+instead of RingoJS and there would be even less work to do
+([appenginejs](http://www.appenginejs.org/) is rather incomplete and needed
+some patches).
+And again, after dinner each team showed theirs app, each was crowd beta-tested
+and the results of the camp was discussed. Sadly I had to leave before
+the conclusion but I have a feeling that SSJS was not voted as production-ready
+Java replacement...
+
+I would like to thank organizers and all the great attenders, I had a great
+time and learned a lot about today's hot technologies. See you next time!
+
