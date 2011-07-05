@@ -40,9 +40,14 @@ section#post_list a {
 section#post_list a:visited {
 	color: gray;
 }
+section#content {
+}
 section#content > div {
+  border-left: 3px black solid;
 	padding-left: 1em;
-	border-left: 3px black solid;
+}
+div.footnotes {
+	padding-left: 1em;
 }
 div#header {
 	height: 2em;
