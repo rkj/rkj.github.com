@@ -31,11 +31,11 @@ whole file and cherry pick interesting entries.
 Because of the size of the XML, using a [DOM
 parser](http://en.wikipedia.org/wiki/XML#Document_Object_Model_.28DOM.29) on a
 laptop would not work because of memory usage. Obvious solution would be to use
-SAX parser, but I consider it to be totally backwards. I guess this API was easy to
-implement, but is strange to use, and code using it ends up pretty mangled.  I
-prefer [Pull Parsing](http://www.xmlpull.org/) so I searched for some nice
-parser, preferably in Ruby. As it turns out, the excellent
-[Nokogiri](http://nokogiri.org) have one as
+SAX parser, but I consider it to be totally backwards. I guess this API was
+easy to implement, but as a result it is strange to use, and code using it ends
+up pretty mangled.  I prefer [Pull Parsing](http://www.xmlpull.org/) so I
+searched for some nice parser, preferably in Ruby. As it turns out, the
+excellent [Nokogiri](http://nokogiri.org) have one as
 [XML::Reader](http://nokogiri.org/Nokogiri/XML/Reader.html). 
 
 # Code
@@ -45,4 +45,9 @@ taken from the XML and saved as JSON (it could be any other format of course).
 In the second phase it was read and inserted into MySQL. It allowed writing
 phase two code while phase one was running and was generally more error
 resistant (errors in phase two didn't cause whole import to be rerun).
+
+Phase one code from [GitHub/parse-osm.rb](https://github.com/rkj/devcamp-ssjs-db/blob/master/osm/parse-osm.rb):
+{% highlight ruby linenos %}
+{% include code/2011-07-05-parse-osm.rb %}
+{% endhighlight %}
 
