@@ -27,7 +27,8 @@ work hard, as no one would like to present nothing...
 On Sunday, our final day, each team was given the same task: implement simple
 twitter clone using some of the technologies we have worked with. We started at
 10am and the deadline was dinner at 2pm. I, together with
-[Bartek](http://twitter.com/#!/bartaz) and Bernard used RingoJS deployed on
+[Bartek](http://twitter.com/#!/bartaz) and
+[Bernard](http://twitter.com/#!/gustaff_weldon) used RingoJS deployed on
 AppEngine, and the results are visible
 [here](http://devcamp.ringojs-twitter.appspot.com/). I think it is quite
 impressive that now we have technologies and tools that allows us to build such
@@ -35,10 +36,11 @@ things in a rather short time span. But to be honest we could use Python
 instead of RingoJS and there would be even less work to do
 ([appenginejs](http://www.appenginejs.org/) is rather incomplete and needed
 some patches).
+
 And again, after dinner each team showed theirs app, each was crowd beta-tested
 and the results of the camp was discussed. Sadly I had to leave before
 the conclusion but I have a feeling that SSJS was not voted as production-ready
-Java replacement...
+Java replacement... But more on that later.
 
 I would like to thank the organizers and all the great attenders, I had a great
 time and learned a lot about today's hot technologies. See you next time!
