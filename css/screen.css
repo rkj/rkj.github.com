@@ -43,7 +43,6 @@ section#post_list a:visited {
 section#content {
 }
 section#content > div {
-  /*border-left: 3px black solid;*/
 	padding-left: 1em;
 }
 div.footnotes {

@@ -1,5 +1,5 @@
 ---
-title: Parsing OpenStreetMap's JOSM huge data using Nokogiri 
+title: Parsing huge OpenStreetMap's JOSM file using Nokogiri 
 layout: post
 categories: [devcamp, josm, openstreetmap, ruby, parser, tutorial]
 ---
@@ -12,7 +12,7 @@ I was having fun with [MongoDB](http://www.mongodb.org) and
 to NoSQL dbs and then make some tests/comparisons.  After a quick brainstorm we
 decided to create database with places/POIs. The greatest free geo repository I
 know is [OpenStreetMap](http://openstreetmap.org) and they are providing all
-theirs data to [download](http://wiki.openstreetmap.org/wiki/Downloading_data).
+theirs data for [download](http://wiki.openstreetmap.org/wiki/Downloading_data).
 Whole repository is really huge (almost 17GiB of compressed data), so we
 settled for using only Poland data from a [nice
 mirror](http://download.geofabrik.de/osm/europe/).
@@ -33,7 +33,7 @@ Because of the size of the XML, using a [DOM
 parser](http://en.wikipedia.org/wiki/XML#Document_Object_Model_.28DOM.29) on a
 laptop would not work because of memory usage. Obvious solution would be to use
 SAX parser, but I consider it to be totally backwards. I guess this API was
-easy to implement, but as a result it is strange to use, and code using it ends
+easy to implement, but the result is a strange to use, and code using it ends
 up pretty mangled.  I prefer [Pull Parsing](http://www.xmlpull.org/) so I
 searched for some nice parser, preferably in Ruby. As it turns out, the
 excellent [Nokogiri](http://nokogiri.org) have one as
@@ -51,7 +51,7 @@ Phase one code from [GitHub/parse-osm.rb](https://github.com/rkj/devcamp-ssjs-db
 {% highlight ruby linenos %}
 {% include code/2011-07-05-parse-osm.rb %}
 {% endhighlight %}
-It ran for little over 250 seconds parsing whole file:
+Parsing whole file ran for a little over 250 seconds:
 
     ruby parse-osm.rb poland.osm poi.json  247.94s user 3.07s system 99% cpu 4:13.08 total
 
