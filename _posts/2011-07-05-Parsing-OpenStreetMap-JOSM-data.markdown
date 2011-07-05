@@ -22,9 +22,10 @@ mirror](http://download.geofabrik.de/osm/europe/).
 Format specification is described on [OSM
 wiki](http://wiki.openstreetmap.org/wiki/JOSM_file_format). It is pretty
 straightforward XML and contains mostly roads, but also cities, buildings,
-shops and ton of other things. This makes even Poland data pretty big (~2.5GiB
-XML file). For us just the POI stuff was important so we had to go through
-whole file and cherry pick interesting entries.
+shops and ton of other things. This makes even Poland data pretty big (~150MiB
+compressed, ~2.5GiB uncompressed XML file). For us just the POI stuff was
+important so we had to go through whole file and cherry pick interesting
+entries.
 
 # Parser
 
@@ -50,4 +51,6 @@ Phase one code from [GitHub/parse-osm.rb](https://github.com/rkj/devcamp-ssjs-db
 {% highlight ruby linenos %}
 {% include code/2011-07-05-parse-osm.rb %}
 {% endhighlight %}
+
+Phase two will be described in more details in a following post. Stay tuned!
 
