@@ -1,7 +1,7 @@
 ---
 title: Parsing OpenStreetMap's JOSM huge data using Nokogiri 
 layout: post
-categories: [josm, openstreetmap, ruby, parser, tutorial]
+categories: [devcamp, josm, openstreetmap, ruby, parser, tutorial]
 ---
 
 # Background
@@ -51,6 +51,19 @@ Phase one code from [GitHub/parse-osm.rb](https://github.com/rkj/devcamp-ssjs-db
 {% highlight ruby linenos %}
 {% include code/2011-07-05-parse-osm.rb %}
 {% endhighlight %}
+It ran for little over 250 seconds parsing whole file:
 
-Phase two will be described in more details in a following post. Stay tuned!
+    ruby parse-osm.rb poland.osm poi.json  247.94s user 3.07s system 99% cpu 4:13.08 total
+
+Just copying the file take more than half of that:
+
+    cp -i poland.osm del.me  0.03s user 3.80s system 2% cpu 2:32.33 total
+
+So the overhead is not too big. While running, the script used less than 4MiB
+of RAM, so also very acceptable. The result is 101 793 POI candidates[^1] that
+will be imported into the DB in the phase two. It will be described in more
+details in a following post, so stay tuned!
+
+[^1]: extracted from 14 122 097 JOSM 'node's and 89 522 705 XML nodes;that gives processing of
+more than 362 440 XML tags per second.
 

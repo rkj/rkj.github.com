@@ -1,10 +1,10 @@
 #!/usr/bin/env ruby
 # Small script for scraping POIs from JOSM (http://wiki.openstreetmap.org/wiki/JOSM_file_format).
+require 'rubygems'
 require 'bundler/setup'
 require 'nokogiri'
 require 'json'
 require 'ap'
-
 
 class Parser
   # Tags in data that we ignore.
@@ -16,6 +16,8 @@ class Parser
     @popular_attributes = {}
     # number of nodes parsed
     @count = 0
+    # number of total xml nodes went through
+    @total_count = 0
     # number of entries considered useful as POI
     @included = 0
   end
@@ -29,25 +31,25 @@ class Parser
       while reader = parse_node(reader, out)
       end
     ensure
-      STDERR.puts ""
       out.write "{}\n]\n"
       out.close
       ap @popular_attributes.sort_by { |k, v| v}.reverse
+      STDERR.puts ""
+      puts "\n#{@included} / #{@count} / #{@total_count}\t"
     end
   end
 
   def parse_node(r, out)
     # Search for 'node' tags because they contain data (points). Other tags
     # are discarder.
-    r = r.read while r && r.name != 'node'
+    (r = r.read; progress) while r && r.name != 'node'
     # Stop processing if end of file
     return false unless r
     # Create entry to be enriched with 'tag' data
     entry = { :lat => r.attribute("lat"), :lon => r.attribute("lon") }
-    @count += 1
     # Required fields to create usable POI.
     req = ["name"]
-    while r = r.read
+    while (progress; r = r.read)
       # Next node found, so no more tags.
       break if r.name == 'node'
       # Only 'tag' are interesting.
@@ -67,13 +69,20 @@ class Parser
       out.write(entry.to_json)
       out.write(",\n")
     end
-    # Progress info
-    if @count % 100 == 0
+    progress(true)
+    return r
+  end
+
+  # Progress info
+  def progress(entry_found = false)
+    @total_count += 1; 
+    @count += 1 if entry_found
+    limit = 10000
+    if @total_count % limit == 0
       STDERR.print "."
-      STDERR.print "\r#{@included}/#{@count}\t" if @count % 5000 == 0
+      STDERR.print "\r#{@included} / #{@count} / #{@total_count}\t" if @total_count % (limit * 50) == 0
       STDERR.flush
     end
-    return r
   end
 end
 
