@@ -4,14 +4,14 @@ title: rkj tech blog
 ---
 <section> 
   <section id="articles"> 
-    {% for post in site.posts limit: 5 %}
+    {% for post in paginator.posts %}
     <article class="post"> 
       <header>
         <h2><a href="{{ post.url }}">{{ post.title }}</a></h1>
         <span class="date">{{  post.date | date: "%Y-%m-%d" }}</span>
       </header>
       <section class="content"> 
-        {{ post.content | strip_html | truncatewords: 100 }}
+        {{ post.excerpt }}
       </section> 
       <div class="more">
         <a href="{{ post.url }}#disqus_thread">Comments</a>
@@ -20,6 +20,19 @@ title: rkj tech blog
       </div>
       <script src="http://feeds.feedburner.com/~s/RkjTechBlog?i={{ post.url }}" type="text/javascript"></script>
     </article>
-    {% endfor %}
+    <div class="more">
+      {% endfor %}
+      {% if paginator.previous_page %}
+        {% if paginator.page == 2 %}
+          <a href="/index.html">&laquo; Newer</a>
+        {% else %}
+        <a href="/page{{ paginator.previous_page}}/index.html">&laquo; Newer</a>
+        {% endif %}
+      {% endif %}
+      |
+      {% if paginator.next_page %}
+      <a href="/page{{ paginator.next_page}}/index.html">Older &raquo;</a>
+      {% endif %}
+    </div>
   </section>
 </section>

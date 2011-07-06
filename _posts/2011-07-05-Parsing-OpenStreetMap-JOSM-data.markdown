@@ -32,11 +32,10 @@ entries.
 Because of the size of the XML, using a [DOM
 parser](http://en.wikipedia.org/wiki/XML#Document_Object_Model_.28DOM.29) on a
 laptop would not work because of memory usage. Obvious solution would be to use
-SAX parser, but I consider it to be totally backwards. I guess this API was
-easy to implement, but the result is a strange to use, and code using it ends
-up pretty mangled.  I prefer [Pull Parsing](http://www.xmlpull.org/) so I
-searched for some nice parser, preferably in Ruby. As it turns out, the
-excellent [Nokogiri](http://nokogiri.org) have one as
+SAX parser, but I consider it to be totally backwards[^1]. I prefer [Pull
+Parsing](http://www.xmlpull.org/) so I searched for some nice parser,
+preferably in Ruby. As it turns out, the excellent
+[Nokogiri](http://nokogiri.org) have one as
 [XML::Reader](http://nokogiri.org/Nokogiri/XML/Reader.html). 
 
 # Code
@@ -60,10 +59,13 @@ Just copying the file take more than half of that:
     cp -i poland.osm del.me  0.03s user 3.80s system 2% cpu 2:32.33 total
 
 So the overhead is not too big. While running, the script used less than 4MiB
-of RAM, so also very acceptable. The result is 101 793 POI candidates[^1] that
+of RAM, so also very acceptable. The result is 101 793 POI candidates[^2] that
 will be imported into the DB in the phase two. It will be described in more
 details in a following post, so stay tuned!
 
-[^1]: extracted from 14 122 097 JOSM 'node's and 89 522 705 XML nodes;that gives processing of
+[^1]: I mean literally backwards. You, as a client, has to maintain state and
+react appropriately. Is is just wrong. I guess this API was easy to implement,
+but the result is a strange to use, and code using it ends up pretty mangled.
+[^2]: Extracted from 14 122 097 JOSM 'node's and 89 522 705 XML nodes;that gives processing of
 more than 362 440 XML tags per second.
 

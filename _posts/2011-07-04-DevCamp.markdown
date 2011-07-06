@@ -16,6 +16,7 @@ organized by [DevMeetings.pl](http://devmeetings.pl). It was advertised as a
 three days long, advanced and practical developers meeting in a nice hotel in
 countryside. It didn't take me long to accept the invitation and I was eagerly
 waiting for it.
+<!--more-->
 
 About twenty developers arrived on Thursday evening. For the first two days we
 worked in 4-5 people teams researching different topics: security, performance,
