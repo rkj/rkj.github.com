@@ -1,3 +1,4 @@
+require 'liquid'
 module Excerpt
   include Liquid::StandardFilters
   def excerpt(content)

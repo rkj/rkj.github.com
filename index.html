@@ -12,6 +12,7 @@ title: rkj tech blog
       </header>
       <section class="content"> 
         {{ post.content | excerpt }}
+        {{ post.content | summarize }}
       </section> 
       <div class="more">
         <a href="{{ post.url }}#disqus_thread">Comments</a>
