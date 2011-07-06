@@ -11,7 +11,7 @@ title: rkj tech blog
         <span class="date">{{  post.date | date: "%Y-%m-%d" }}</span>
       </header>
       <section class="content"> 
-        {{ post.excerpt }}
+        {{ post.content | excerpt }}
       </section> 
       <div class="more">
         <a href="{{ post.url }}#disqus_thread">Comments</a>
