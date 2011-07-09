@@ -1,5 +1,5 @@
 ---
-title: Parsing huge OpenStreetMap's JOSM file using Nokogiri 
+title: Parsing huge OpenStreetMap's JOSM file using Nokogiri
 layout: post
 categories: [devcamp, josm, openstreetmap, ruby, parser, tutorial]
 ---
