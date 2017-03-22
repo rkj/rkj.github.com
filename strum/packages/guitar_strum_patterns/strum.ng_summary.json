@@ -1,0 +1,124 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2_components/angular2_components.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "StrumsComponent",
+        "7": [
+          {
+            "2": "NgFor"
+          },
+          {
+            "2": "StrumComponent"
+          }
+        ]
+      },
+      {
+        "1": "StrumComponent",
+        "7": [
+          {
+            "2": "NgFor"
+          },
+          {
+            "2": "NgIf"
+          },
+          {
+            "2": "GlyphComponent"
+          }
+        ]
+      }
+    ],
+    "6": "strum.dart"
+  },
+  "type": {
+    "StrumsComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "strums",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "StrumsComponent",
+        "moduleUrl": "asset:guitar_strum_patterns/lib/strum.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {},
+      "inputTypes": {},
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 2,
+        "template": "<h1>Strums</h1>\n\n<strum *ngFor=\"let pattern of patterns\"\n       [patternId]=\"pattern\">\n</strum>\n",
+        "templateUrl": "asset:guitar_strum_patterns/lib/strums.html",
+        "styles": [],
+        "styleUrls": [],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    },
+    "StrumComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "strum",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "StrumComponent",
+        "moduleUrl": "asset:guitar_strum_patterns/lib/strum.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {
+        "count": "count",
+        "patternId": "patternId"
+      },
+      "inputTypes": {
+        "count": " int",
+        "patternId": " int"
+      },
+      "outputs": {},
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [],
+      "template": {
+        "encapsulation": 0,
+        "template": "<h2>Pattern {{patternId}}</h2>\n<div class=\"beats\">\n  <span *ngFor=\"let beat of beats; let idx = index\" class=\"beat\">\n    <glyph [icon]=\"icon(beat, idx)\"></glyph>\n  </span>\n</div>\n\n",
+        "templateUrl": "asset:guitar_strum_patterns/lib/strum.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:guitar_strum_patterns/lib/strum.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

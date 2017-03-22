@@ -1,0 +1,7 @@
+<h2>Pattern {{patternId}}</h2>
+<div class="beats">
+  <span *ngFor="let beat of beats; let idx = index" class="beat">
+    <glyph [icon]="icon(beat, idx)"></glyph>
+  </span>
+</div>
+

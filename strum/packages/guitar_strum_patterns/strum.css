@@ -1,0 +1,9 @@
+.beats {
+  display: flex;
+  flex-direction: row;
+}
+
+.beat {
+  display: flex;
+  width: 32px;
+}
